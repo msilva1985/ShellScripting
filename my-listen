@@ -1,0 +1,24 @@
+#!/bin/bash
+repetidos[i]=0;
+
+if [ $1 == "-t" ]; then
+	command=`netstat -tnl | grep LISTEN | awk '{print $4}' | sed -e 's/.*://'`
+	echo "List Open TCP ports in local machine:";
+	for i in ${command}; do 
+		if [[ " ${repetidos[*]} " != *" $i "* ]]; then
+			echo "* "$i; 
+			repetidos[i]=$i;
+		fi
+	done
+
+else
+	echo "List Open UDP ports in local machine:"
+	command=`netstat -unl | grep udp | awk '{print $4}' | sed -e 's/.*://'`
+	for i in ${command}; do 
+		if [[ " ${repetidos[*]} " != *" $i "* ]]; then
+			echo "* "$i; 
+			repetidos[i]=$i;
+		fi
+	done
+
+fi
