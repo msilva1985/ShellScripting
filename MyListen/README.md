@@ -6,6 +6,7 @@ Script realizado en Shell Script que imprime en pantalla los puertos abiertos se
 ## Modo de Uso
 
 ./my-listen -t (para mostrar los puertos abiertos TCP) 
+
 ./my-listen -u (para mostrar los puertos abiertos UDP)  
 
 
