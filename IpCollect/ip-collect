@@ -1,0 +1,15 @@
+#!/bin/bash
+count=1;
+command=`ip addr show | grep inet | awk '{print $2}'`
+lineas=`ip addr show | grep inet | awk '{print $2}' | wc -l`;
+for i in ${command}; do
+	if [ $count -lt $lineas ]; then
+		echo -n  $i",";
+		((count++))
+	else
+
+		echo $i;
+	fi
+
+
+done
